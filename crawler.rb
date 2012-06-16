@@ -5,14 +5,14 @@ require 'csv'
 def extract_data(content,csv)
     
     info1=content.search('div.row')
-	info2=content.search('div.listing_content div:last')
+    info2=content.search('div.listing_content div:last')
 	
-	name=info1[0].search('a').text.strip
-	address=info1[1].search('div.left p').text
-	phone=info2.search('p:last').text.split(':')[1]
+    name=info1[0].search('a').text.strip
+    address=info1[1].search('div.left p').text
+    phone=info2.search('p:last').text.split(':')[1]
 	
     csv << [name, address, phone]
-    print name+address+phone
+    
 end
 
 
