@@ -23,7 +23,9 @@ contents=page.search 'div.listing'
 csv=CSV.open('data.csv','w')
 csv << ["Name", " Address", " Phone"] 
 
-if contents.respond_to?("each")
+if contents.to_s==''
+   puts 'No required information'
+elsif contents.respond_to?("each")
 	contents.each do |content|
 	   extract_data(content,csv)			
 	end
